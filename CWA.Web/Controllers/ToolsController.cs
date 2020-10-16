@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CWA.Library;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,6 +10,11 @@ namespace CWA.Web.Controllers
 {
     public class ToolsController : Controller
     {
+        private StringTools _stringTools;
+        public ToolsController()
+        {
+            _stringTools = new StringTools();
+        }
         // GET: ToolsController
         public ActionResult Index()
         {
@@ -17,6 +23,22 @@ namespace CWA.Web.Controllers
 
         public ActionResult Help()
         {
+            return View();
+        }
+
+        public ActionResult Palindrome(string input)
+        {
+            string result = "";
+            if(_stringTools.IsPalindrome(input))
+            {
+                result = $"Yes, {input} is a palindrome.";
+            }
+            else
+            {
+                result = $"No, {input} is a palindrome.";
+            }
+
+            ViewData["IsPalindromeResult"] = result;
             return View();
         }
 
