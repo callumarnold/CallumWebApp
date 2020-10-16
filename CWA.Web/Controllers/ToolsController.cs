@@ -26,16 +26,17 @@ namespace CWA.Web.Controllers
             return View();
         }
 
+        [HttpPost("{input}")]
         public ActionResult Palindrome(string input)
         {
-            string result = "";
+            string result;
             if(_stringTools.IsPalindrome(input))
             {
                 result = $"Yes, {input} is a palindrome.";
             }
             else
             {
-                result = $"No, {input} is a palindrome.";
+                result = $"No, {input} is not a palindrome.";
             }
 
             ViewData["IsPalindromeResult"] = result;
@@ -43,6 +44,7 @@ namespace CWA.Web.Controllers
         }
 
         // GET: ToolsController/Details/5
+        
         public ActionResult Details(int id)
         {
             return View();
