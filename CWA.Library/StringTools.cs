@@ -19,7 +19,7 @@ namespace CWA.Library
                 Array.Reverse(inputArray);
                 string reverse = inputArray.ToString();
 
-                if (input == reverse)
+                if (input == reverse) //word is a palindrome
                 {
                     return true;
                 }
